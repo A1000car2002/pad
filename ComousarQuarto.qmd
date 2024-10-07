@@ -48,4 +48,6 @@ Esta es una fórmula cualquiera $$\frac{\left(2x-1\right)^2-1}{4}=k$$
 1. Hacer push al repositorio
 1. Activar Github pages
 
+# Agradecimiento 
+![](thank.jpg)
 
