@@ -1,5 +1,5 @@
 ---
-title: "EL VALOR DE LAS MATEMÁTICAS"
+title: "EL VALOR DE LA PROGRAMACIÓN"
 author: "Ph. D Amilcar Valle López"
 format:
   html:
@@ -7,8 +7,10 @@ format:
     toc-location: left
     number-sections: true
     embed-resources: true
+    smooth-scroll: true
     anchor-sections: true
     output-file: index
+    css: estilos.css
 ---
 
 ```{r}
@@ -22,7 +24,11 @@ You can add options to executable code like this
 2 * 2
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+# Introducción
+Aquí puedes ver una imagen relacionada con el tema:
+
+![La programación del futuro](prog.jpg)
+
 
 # ¿Cómo usar Quarto?
 ## fuentes
@@ -30,11 +36,12 @@ The `echo: false` option disables the printing of code (only output is displayed
 - Cursiva: _Solanum tuberosum_
 
 ## Fórmulas matemáticas
-Este es el Área del círculo$$Area_{círculo}=pi\cdot r2$$
+Este es el Área del círculo$$Area_{círculo}=pi\cdot r^2$$
+Esta es la fórmula de la ecuaciones cuadráticas $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
-Esta es una fórmula cualquiera$$\frac{\left(2x-1\right)2-1}{4}=k$$
+Esta es una fórmula cualquiera $$\frac{\left(2x-1\right)^2-1}{4}=k$$
 
-# Para mi primer proyecto considerar
+# Para realizar el proyecto debo
 1. Tener mi proyecto
 1. Conectar mi proyecto a GithUb
 1. Tener un archivo en formato html llamado `index.html`
