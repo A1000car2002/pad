@@ -1,0 +1,44 @@
+---
+title: "EL VALOR DE LAS MATEMÁTICAS"
+author: "Ph. D Amilcar Valle López"
+format:
+  html:
+    toc: true
+    toc-location: left
+    number-sections: true
+    embed-resources: true
+    anchor-sections: true
+    output-file: index
+---
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+# ¿Cómo usar Quarto?
+## fuentes
+- Negrita: **esto es fuente negrita**
+- Cursiva: _Solanum tuberosum_
+
+## Fórmulas matemáticas
+Este es el Área del círculo$$Area_{círculo}=pi\cdot r2$$
+
+Esta es una fórmula cualquiera$$\frac{\left(2x-1\right)2-1}{4}=k$$
+
+# Para mi primer proyecto considerar
+1. Tener mi proyecto
+1. Conectar mi proyecto a GithUb
+1. Tener un archivo en formato html llamado `index.html`
+1. Hacer push al repositorio
+1. Activar Github pages
+
+
