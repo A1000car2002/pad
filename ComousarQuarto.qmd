@@ -40,6 +40,7 @@ Este es el Área del círculo$$Area_{círculo}=pi\cdot r^2$$
 Esta es la fórmula de la ecuaciones cuadráticas $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
 Esta es una fórmula cualquiera $$\frac{\left(2x-1\right)^2-1}{4}=k$$
+Esta la formula del volumen del cilindro $$V_{cilindro}=pi\cdot r^2.h$$
 
 # Para realizar el proyecto debo
 1. Tener mi proyecto
@@ -50,4 +51,4 @@ Esta es una fórmula cualquiera $$\frac{\left(2x-1\right)^2-1}{4}=k$$
 
 # Agradecimiento 
 ![](thank.jpg)
-
+# 
