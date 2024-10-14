@@ -40,7 +40,7 @@ Este es el Área del círculo$$Area_{círculo}=pi\cdot r^2$$
 Esta es la fórmula de la ecuaciones cuadráticas $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
 Esta es una fórmula cualquiera $$\frac{\left(2x-1\right)^2-1}{4}=k$$
-Esta la formula del volumen del cilindro $$V_{cilindro}=pi\cdot r^2.h$$
+Esta es la fórmula del volumen del cilindro $$V_{cilindro}=pi\cdot r^2.h$$
 
 # Para realizar el proyecto debo
 1. Tener mi proyecto
@@ -49,6 +49,45 @@ Esta la formula del volumen del cilindro $$V_{cilindro}=pi\cdot r^2.h$$
 1. Hacer push al repositorio
 1. Activar Github pages
 
+# Modelos lineales mixtos
+
+## Insertar datos
+
+```{r}
+source('https://inkaverse.com/setup.r')
+
+url <- "https://docs.google.com/spreadsheets/d/15r7ZwcZZHbEgltlF6gSFvCTFA-CFzVBWwg3mFlRyKPs/edit?gid=172957346#gid=172957346"
+
+gs <- url %>% 
+  as_sheets_id()
+
+fb <- gs %>%
+  range_read("fb")
+
+str(fb)
+```
+## Modelo lineal
+```{r}
+modelo <- aov(formula = lfa ~ bloque + riego + geno + riego*geno
+              , data =fb)
+
+anova(modelo)
+
+plot(modelo)
+```
+
+### Boxplot
+
+```{r}
+ggplot(fb, aes(x = geno, y = lfa, colour = riego)) + 
+         geom_boxplot(outlier.colour = "red", outlier.shape = 16, outlier.size = 2) + 
+         labs(title = "Boxplot con interacción de niveles de riego y genotipo",
+              x = "Interacción riego y genotipo",
+              y = "Área foliar (cm^2)")
+         theme_minimal() + 
+         theme(axis.text.x = element_text(angle = 45,hjust = 1))
+```
+
+
 # Agradecimiento 
 ![](thank.jpg)
-# 
