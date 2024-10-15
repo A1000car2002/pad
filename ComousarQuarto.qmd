@@ -56,7 +56,7 @@ fb <- gs %>%
 
 str(fb)
 ```
-## Modelo lineal
+## Modelo lineal para lfa
 ```{r}
 modelo <- aov(formula = lfa ~ bloque + riego + geno + riego*geno
               , data =fb)
@@ -78,6 +78,50 @@ ggplot(fb, aes(x = geno, y = lfa, colour = riego)) +
          theme(axis.text.x = element_text(angle = 45,hjust = 1))
 ```
 
+## Modelo lineal para hi
+```{r}
+modelo <- aov(formula = hi ~ bloque + riego + geno + riego*geno
+              , data =fb)
+
+anova(modelo)
+
+plot(modelo)
+```
+### Boxplot
+```{r}
+ggplot(fb, aes(x = geno, y = hi, colour = riego)) + 
+         geom_boxplot(outlier.colour = "red", outlier.shape = 16, outlier.size = 2) + 
+         labs(title = "Boxplot con interacción de niveles de riego y genotipo",
+              x = "Interacción riego y genotipo",
+              y = "Área foliar (cm^2)")
+         theme_minimal() + 
+         theme(axis.text.x = element_text(angle = 45,hjust = 1))
+```
+
+
+
+## Modelos lineales mixtos : lfa
+```{r}
+library(lme4)
+
+model <- lme4::lmer(formula = lfa ~ riego + geno + riego * geno + (1 | bloque), data = fb)
+
+anova(model)
+
+plot(model)
+
+ol <- boxplot(lfa ~ riego * geno, fb)
+ol
+```
+
+```{r}
+library(inti)
+model <- remove_outliers(data = fb
+                         ,formula = lfa ~ riego + geno + riego * geno+ (1 | bloque)
+                         , plot_diag = T
+                         ) 
+model
+```
 
 # Agradecimiento 
 ![](thank.jpg)
