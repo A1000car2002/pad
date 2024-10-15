@@ -10,7 +10,9 @@ format:
     smooth-scroll: true
     anchor-sections: true
     output-file: index
-    css: estilos.css
+    theme: darkly
+    fontsize: 1.1em
+    linestretch: 1.7
 ---
 
 
