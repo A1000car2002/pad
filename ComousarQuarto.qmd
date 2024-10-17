@@ -10,36 +10,37 @@ format:
     smooth-scroll: true
     anchor-sections: true
     output-file: index
-    theme: darkly
     fontsize: 1.1em
     linestretch: 1.7
+    css: estilos.css
 ---
 
-
 # Introducción
+
 Aquí puedes ver una imagen relacionada con el tema:
 
 ![La programación del futuro](prog.jpg)
 
-
 # ¿Cómo usar Quarto?
+
 ## fuentes
-- Negrita: **esto es fuente negrita**
-- Cursiva: _Solanum tuberosum_
+
+-   Negrita: **esto es fuente negrita**
+-   Cursiva: *Solanum tuberosum*
 
 ## Fórmulas matemáticas
-Este es el Área del círculo$$Area_{círculo}=pi\cdot r^2$$
-Esta es la fórmula de la ecuaciones cuadráticas $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
-Esta es una fórmula cualquiera $$\frac{\left(2x-1\right)^2-1}{4}=k$$
-Esta es la fórmula del volumen del cilindro $$V_{cilindro}=pi\cdot r^2.h$$
+Este es el Área del círculo$$Area_{círculo}=pi\cdot r^2$$ Esta es la fórmula de la ecuaciones cuadráticas $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+
+Esta es una fórmula cualquiera $$\frac{\left(2x-1\right)^2-1}{4}=k$$ Esta es la fórmula del volumen del cilindro $$V_{cilindro}=pi\cdot r^2.h$$
 
 # Para realizar el proyecto debo
-1. Tener mi proyecto
-1. Conectar mi proyecto a GithUb
-1. Tener un archivo en formato html llamado `index.html`
-1. Hacer push al repositorio
-1. Activar Github pages
+
+1.  Tener mi proyecto
+2.  Conectar mi proyecto a GithUb
+3.  Tener un archivo en formato html llamado `index.html`
+4.  Hacer push al repositorio
+5.  Activar Github pages
 
 # Modelos lineales mixtos
 
@@ -58,7 +59,9 @@ fb <- gs %>%
 
 str(fb)
 ```
+
 ## Modelo lineal para lfa
+
 ```{r}
 modelo <- aov(formula = lfa ~ bloque + riego + geno + riego*geno
               , data =fb)
@@ -72,7 +75,7 @@ plot(modelo)
 
 ```{r}
 ggplot(fb, aes(x = geno, y = lfa, colour = riego)) + 
-         geom_boxplot(outlier.colour = "red", outlier.shape = 16, outlier.size = 2) + 
+         geom_boxplot(outlier.colour = "green", outlier.shape = 16, outlier.size = 2) + 
          labs(title = "Boxplot con interacción de niveles de riego y genotipo",
               x = "Interacción riego y genotipo",
               y = "Área foliar (cm^2)")
@@ -81,6 +84,7 @@ ggplot(fb, aes(x = geno, y = lfa, colour = riego)) +
 ```
 
 ## Modelo lineal para hi
+
 ```{r}
 modelo <- aov(formula = hi ~ bloque + riego + geno + riego*geno
               , data =fb)
@@ -89,10 +93,12 @@ anova(modelo)
 
 plot(modelo)
 ```
+
 ### Boxplot
+
 ```{r}
 ggplot(fb, aes(x = geno, y = hi, colour = riego)) + 
-         geom_boxplot(outlier.colour = "red", outlier.shape = 16, outlier.size = 2) + 
+         geom_boxplot(outlier.colour = "blue", outlier.shape = 16, outlier.size = 2) + 
          labs(title = "Boxplot con interacción de niveles de riego y genotipo",
               x = "Interacción riego y genotipo",
               y = "Área foliar (cm^2)")
@@ -100,9 +106,8 @@ ggplot(fb, aes(x = geno, y = hi, colour = riego)) +
          theme(axis.text.x = element_text(angle = 45,hjust = 1))
 ```
 
-
-
 ## Modelos lineales mixtos : lfa
+
 ```{r}
 library(lme4)
 
@@ -125,5 +130,6 @@ model <- remove_outliers(data = fb
 model
 ```
 
-# Agradecimiento 
+# Agradecimiento
+
 ![](thank.jpg)

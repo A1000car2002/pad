@@ -1,12 +1,48 @@
+/* Estilo general del cuerpo */
 body {
-  color: #333333; /* Cambia el color del texto */
-  background-color: #f4f4f4; /* Cambia el color de fondo */
+  background-color: #2e2e2e; /* Gris oscuro */
+  color: #e0e0e0; /* Texto claro */
+  font-family: 'Lato', sans-serif; /* Fuente para el contenido */
+  line-height: 1.8;
+  padding: 20px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: #005f99; /* Cambia el color de los encabezados */
+/* Estilo de los títulos */
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif; /* Fuente para los títulos */
+  color: #80deea; /* Títulos en color cian suave */
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
+/* Estilo para los enlaces */
 a {
-  color: #FF5733; /* Cambia el color de los enlaces */
+  color: #ffab91; /* Enlaces en color salmón */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff7043; /* Efecto hover en los enlaces */
+}
+
+/* Estilo de la tabla de contenidos (TOC) */
+.toc {
+  background-color: #424242; /* Fondo gris más oscuro para la TOC */
+  border-left: 4px solid #80deea; /* Línea cian para la TOC */
+  padding: 10px;
+}
+
+.toc a {
+  color: #e0e0e0; /* Texto de la TOC en color claro */
+}
+
+.toc a:hover {
+  color: #80deea; /* Cambia a cian al pasar el mouse */
+}
+
+/* Estilo para los párrafos */
+p {
+  font-size: 1.2em;
+  color: #eeeeee; /* Texto claro para mejor legibilidad */
+  margin-bottom: 20px;
 }
