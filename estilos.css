@@ -1,16 +1,25 @@
-/* Estilo general del cuerpo */
 body {
-  background-color: #2e2e2e; /* Gris oscuro */
-  color: #e0e0e0; /* Texto claro */
-  font-family: 'Lato', sans-serif; /* Fuente para el contenido */
+  background: linear-gradient(
+    to right, 
+    #ff9a9e 0%,    /* Rosa suave */
+    #fecfef 15%,   /* Rosa pálido */
+    #a1c4fd 30%,   /* Azul claro */
+    #c2e9fb 45%,   /* Cian suave */
+    #feada6 60%,   /* Rosa anaranjado */
+    #ff9a9e 75%,   /* Rosa suave */
+    #fecfef 85%,   /* Rosa pálido */
+    #a1c4fd 100%   /* Azul claro */
+  );
+  color: #333333;
+  font-family: 'Lato', sans-serif;
   line-height: 1.8;
   padding: 20px;
 }
 
 /* Estilo de los títulos */
 h1, h2, h3 {
-  font-family: 'Poppins', sans-serif; /* Fuente para los títulos */
-  color: #80deea; /* Títulos en color cian suave */
+  font-family: 'Poppins', Segoe UI; /* Fuente para los títulos */
+  color: black; /* Títulos en color cian suave */
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -33,7 +42,7 @@ a:hover {
 }
 
 .toc a {
-  color: #e0e0e0; /* Texto de la TOC en color claro */
+  color: #333333; /* Texto de la TOC en color claro */
 }
 
 .toc a:hover {
@@ -43,6 +52,6 @@ a:hover {
 /* Estilo para los párrafos */
 p {
   font-size: 1.2em;
-  color: #eeeeee; /* Texto claro para mejor legibilidad */
+  color: #333333; /* Texto claro para mejor legibilidad */
   margin-bottom: 20px;
 }
