@@ -130,7 +130,7 @@ model <- remove_outliers(data = fb
                          ) 
 model
 ```
-# Comparación de medias
+# Agricolae: Comparación de medias
 ```{r}
 modelo <- lm(formula = lfa ~ bloque + riego + geno + riego * geno, data = fb)
 
@@ -183,8 +183,89 @@ ggplot(grupos, aes(x = geno, y = lfa, fill = riego)) +  # Asegúrate de que "LFA
   theme(legend.title = element_blank()) +
   scale_fill_discrete(name = "Riego")
 ```
+## Gráfico de comparación de medias: Tukey
 
+```{r}
+# Crear el gráfico de barras con letras estadísticas
+ggplot(grupos, aes(x = geno, y = lfa, fill = riego)) +  # Asegúrate de que "lfa" sea el nombre correcto
+  geom_bar(stat = "identity", position = position_dodge(), color = "black") +
+  labs(title = "Comparación de Medias - Prueba de Tukey", 
+       x = "Genotipos", 
+       y = "FTL") +
+  theme_minimal() +
+  theme(legend.title = element_blank()) +
+  scale_fill_discrete(name = "Riego") +
+  geom_text(aes(label = groups, y = lfa + 0.05),  # Usar 'groups' en lugar de 'M'
+            position = position_dodge(0.9), vjust = 0)  # Ajustar el espaciado de las letras
+
+```
+# emmeans: Comparación de medias
+
+```{r}
+source('https://inkaverse.com/setup.r')
+
+model <- lme4::lmer(formula = hi ~ riego + geno + riego * geno + (1 | bloque), data = fb)
+
+anova(model)
+
+library(emmeans)
+library(multicmp)
+
+cm1 <- emmeans(model, ~ geno | riego) %>%
+  cld(Letters=letters, reversed = T)
+cm1
+
+cm2 <- emmeans(model, ~ riego | geno) %>%
+  cld(Letters=letters, reversed = T)
+cm2
+
+cm3 <- emmeans(model, ~ riego * geno) %>%
+  cld(Letters=letters, reversed = T)
+cm3
+```
+## Gráfico
+```{r}
+# Convertir las medias estimadas a un dataframe
+cm1_df <- as.data.frame(cm1)
+
+# Ver el contenido del dataframe para asegurarnos de que tiene las columnas correctas
+print(cm1_df)
+
+# Crear el gráfico de barras con los resultados de las medias estimadas de emmeans
+ggplot(cm1_df, aes(x = geno, y = emmean, fill = riego)) +  # Cambia "emmean" por la columna de las medias estimadas
+  geom_bar(stat = "identity", position = position_dodge(), color = "black") +
+  labs(title = "Comparación de Medias - Medias Estimadas", 
+       x = "Genotipos", 
+       y = "hi") +
+  theme_minimal() +
+  theme(legend.title = element_blank()) +
+  scale_fill_discrete(name = "Riego")
+
+```
+
+```{r}
+cm1 <- emmeans(modelo, ~ geno | riego) %>% 
+  cld(Letters = letters, reversed = T)
+cm1
+
+library(tidyverse)
+library(emmeans)
+
+# Convertir las estimaciones de emmeans a un data frame
+dtcm <- as.data.frame(cm1) %>% 
+  rename(sig = ".group")
+ggplot(cm1_df, aes(x = geno, y = emmean, color = riego, group = riego)) +
+  geom_line() +
+  geom_point(size = 3) + 
+  geom_text(aes(label = round(emmean, 2)),   
+            vjust = -0.5, size = 3.5) +  
+  labs(x = "Genotipo", y = "Media marginal ajustada", color = "Riego") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ggtitle("Medias marginales ajustadas por genotipo y riego")
+```
 
 # Agradecimiento
+
 
 ![](thank.jpg)
