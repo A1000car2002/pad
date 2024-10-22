@@ -202,7 +202,6 @@ ggplot(grupos, aes(x = geno, y = lfa, fill = riego)) +  # Asegúrate de que "lfa
 # emmeans: Comparación de medias
 
 ```{r}
-source('https://inkaverse.com/setup.r')
 
 model <- lme4::lmer(formula = hi ~ riego + geno + riego * geno + (1 | bloque), data = fb)
 
@@ -210,6 +209,7 @@ anova(model)
 
 library(emmeans)
 library(multicmp)
+library(multcompView)
 
 cm1 <- emmeans(model, ~ geno | riego) %>%
   cld(Letters=letters, reversed = T)
@@ -244,25 +244,19 @@ ggplot(cm1_df, aes(x = geno, y = emmean, fill = riego)) +  # Cambia "emmean" por
 ```
 
 ```{r}
-cm1 <- emmeans(modelo, ~ geno | riego) %>% 
-  cld(Letters = letters, reversed = T)
-cm1
-
-library(tidyverse)
-library(emmeans)
-
-# Convertir las estimaciones de emmeans a un data frame
-dtcm <- as.data.frame(cm1) %>% 
+dtcm <- as.data.frame(cm2) %>% 
   rename(sig = ".group")
-ggplot(cm1_df, aes(x = geno, y = emmean, color = riego, group = riego)) +
-  geom_line() +
-  geom_point(size = 3) + 
-  geom_text(aes(label = round(emmean, 2)),   
-            vjust = -0.5, size = 3.5) +  
-  labs(x = "Genotipo", y = "Media marginal ajustada", color = "Riego") +
+
+ggplot(dtcm, aes(x = geno, y = emmean, fill = riego)) +
+  geom_bar(stat = "identity", position = "dodge", color = "black") +
+  geom_text(aes(label = sig, y = emmean*1*1),
+            position = position_dodge(width = 0.9),
+            vjust = 0) +
+  labs(x = "Genotipo", y = "HI", fill = "Riego") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  ggtitle("Medias marginales ajustadas por genotipo y riego")
+  ggtitle("Gráfico de barras: LFA por genotipo y riego")
+
 ```
 
 # Agradecimiento
