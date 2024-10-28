@@ -259,6 +259,49 @@ ggplot(dtcm, aes(x = geno, y = emmean, fill = riego)) +
 
 ```
 
+# Analisis multivariado
+```{r}
+str(fb)
+```
+
+## Correlación
+```{r}
+library(tidyverse)
+library(psych)
+
+fb %>%
+  select_if(is.numeric) %>% 
+  dplyr::select(!c("block")) %>%
+                   pairs.panels(x = .
+             , hist.col="red"
+             , pch = 21
+             , stars = TRUE
+             , scale = FALSE
+             , lm = TRUE
+             )
+```
+## PCA: Análisis de componentes principales
+
+```{r}
+library(FactoMineR)
+mv <- fb %>%
+  group_by(riego, geno) %>%
+  summarise(across(where(is.numeric), ~ mean(., na.rm =TRUE))) %>%
+  PCA(scale.unit = T, quali.sup = c(1:4), graph = F)
+
+p1 <- plot(mv
+     , choix="ind"
+     , habillage=1)
+
+p2 <- plot(mv
+     , choix="var")
+list(p1, p2) %>%
+  plot_grid(plotlist = .,nrow = 1)
+```
+
+
+
+
 # Agradecimiento
 
 
