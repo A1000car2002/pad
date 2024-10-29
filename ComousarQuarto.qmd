@@ -1,6 +1,9 @@
 ---
 title: "EL VALOR DE LA PROGRAMACIÓN"
 author: "Ph. D Amilcar Valle López"
+date: "`r Sys.Date()`"
+lang: "es"
+description: "Una exploración en profundidad sobre el valor de la programación en el desarrollo profesional y académico."
 format:
   html:
     toc: true
@@ -13,6 +16,9 @@ format:
     fontsize: 1.1em
     linestretch: 1.7
     css: estilos.css
+    highlight-style: tomorrow-night
+    code-fold: true
+footer: "© 2024 Amilcar Valle López | Todos los derechos reservados"
 ---
 
 
@@ -298,8 +304,6 @@ p2 <- plot(mv
 list(p1, p2) %>%
   plot_grid(plotlist = .,nrow = 1)
 ```
-
-
 
 
 # Agradecimiento

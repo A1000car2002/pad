@@ -1,57 +1,115 @@
+/* Fondo general de la página */
 body {
   background: linear-gradient(
     to right, 
-    #ff9a9e 0%,    /* Rosa suave */
-    #fecfef 15%,   /* Rosa pálido */
-    #a1c4fd 30%,   /* Azul claro */
-    #c2e9fb 45%,   /* Cian suave */
-    #feada6 60%,   /* Rosa anaranjado */
-    #ff9a9e 75%,   /* Rosa suave */
-    #fecfef 85%,   /* Rosa pálido */
-    #a1c4fd 100%   /* Azul claro */
+    #f3e5f5 0%,   /* Lila pastel */
+    #e1bee7 50%,  /* Lavanda claro */
+    #d1c4e9 100%  /* Lila grisáceo */
   );
-  color: #333333;
-  font-family: 'Lato', sans-serif;
+  color: #333333; /* Texto en gris oscuro para buena legibilidad */
+  font-family: 'Arial', sans-serif;
   line-height: 1.8;
   padding: 20px;
 }
 
 /* Estilo de los títulos */
-h1, h2, h3 {
-  font-family: 'Poppins', Segoe UI; /* Fuente para los títulos */
-  color: black; /* Títulos en color cian suave */
-  font-weight: bold;
+h1 {
+  font-family: 'Poppins', sans-serif; /* Fuente del título principal */
+  color: black; /* Morado oscuro */
+  font-weight: 700;
   margin-bottom: 20px;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif; /* Fuente de subtítulos */
+  color: black; /* Morado intermedio */
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif; /* Fuente para subtítulos de nivel 3 */
+  color: black; /* Morado suave */
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 /* Estilo para los enlaces */
 a {
-  color: #ffab91; /* Enlaces en color salmón */
+  color: #ab47bc; /* Enlaces en color lavanda */
   text-decoration: none;
 }
 
 a:hover {
-  color: #ff7043; /* Efecto hover en los enlaces */
+  color: #7e57c2; /* Color más oscuro al pasar el mouse */
 }
 
-/* Estilo de la tabla de contenidos (TOC) */
+/* Estilo para la tabla de contenidos (TOC) */
 .toc {
-  background-color: #424242; /* Fondo gris más oscuro para la TOC */
-  border-left: 4px solid #80deea; /* Línea cian para la TOC */
+  background-color: #e0e0e0; /* Fondo claro para la TOC */
+  border-left: 4px solid #7b1fa2; /* Borde morado */
   padding: 10px;
 }
 
 .toc a {
-  color: #333333; /* Texto de la TOC en color claro */
+  color: #333333; /* Texto oscuro para los enlaces en la TOC */
 }
 
 .toc a:hover {
-  color: #80deea; /* Cambia a cian al pasar el mouse */
+  color: #7b1fa2; /* Color morado al pasar el mouse */
 }
 
-/* Estilo para los párrafos */
+/* Estilo de los párrafos */
 p {
-  font-size: 1.2em;
-  color: #333333; /* Texto claro para mejor legibilidad */
+  font-size: 1.1em;
+  color: black; /* Gris oscuro para mejor legibilidad */
   margin-bottom: 20px;
+}
+
+/* Estilo de las listas */
+ul, ol {
+  font-size: 1em;
+  color: #333333;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Caja para citas o bloques destacados */
+blockquote {
+  background-color: #f3e5f5;
+  border-left: 5px solid #7b1fa2;
+  color: black;
+  margin: 20px 0;
+  padding: 15px;
+  font-style: italic;
+}
+
+/* Código en línea */
+code {
+  background-color: #e0e0e0;
+  color: #6a1b9a;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+/* Código en bloque */
+pre {
+  background-color: #e1bee7;
+  color: black;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.95em;
+  overflow-x: auto;
+}
+
+/* Estilo de pie de página */
+footer {
+  text-align: center;
+  padding: 10px;
+  color: #7b1fa2;
+  font-size: 0.9em;
 }
