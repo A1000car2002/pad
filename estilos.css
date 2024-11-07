@@ -2,11 +2,11 @@
 body {
   background: linear-gradient(
     to right, 
-    #f3e5f5 0%,   /* Lila pastel */
-    #e1bee7 50%,  /* Lavanda claro */
-    #d1c4e9 100%  /* Lila grisáceo */
+    #e8f5e9 0%,   /* Verde pastel claro */
+    #c8e6c9 50%,  /* Verde suave claro */
+    #a5d6a7 100%  /* Verde menta claro */
   );
-  color: #333333; /* Texto en gris oscuro para buena legibilidad */
+  color: black; /* Texto en gris oscuro para buena legibilidad */
   font-family: 'Arial', sans-serif;
   line-height: 1.8;
   padding: 20px;
@@ -15,62 +15,66 @@ body {
 /* Estilo de los títulos */
 h1 {
   font-family: 'Poppins', sans-serif; /* Fuente del título principal */
-  color: black; /* Morado oscuro */
+  color: black; /* Verde oscuro */
   font-weight: 700;
   margin-bottom: 20px;
 }
 
 h2 {
   font-family: 'Roboto', sans-serif; /* Fuente de subtítulos */
-  color: black; /* Morado intermedio */
+  color: black; /* Verde oscuro */
   font-weight: 600;
   margin-bottom: 15px;
 }
 
 h3 {
   font-family: 'Open Sans', sans-serif; /* Fuente para subtítulos de nivel 3 */
-  color: black; /* Morado suave */
+  color: black; /* Verde oscuro */
   font-weight: 500;
   margin-bottom: 10px;
 }
 
 /* Estilo para los enlaces */
 a {
-  color: #ab47bc; /* Enlaces en color lavanda */
+  color: #66bb6a; /* Enlaces en verde suave */
   text-decoration: none;
 }
 
 a:hover {
-  color: #7e57c2; /* Color más oscuro al pasar el mouse */
+  color: #4caf50; /* Color más oscuro al pasar el mouse */
 }
 
-/* Estilo para la tabla de contenidos (TOC) */
-.toc {
-  background-color: #e0e0e0; /* Fondo claro para la TOC */
-  border-left: 4px solid #7b1fa2; /* Borde morado */
-  padding: 10px;
+/* Estilo para el índice (TOC) */
+#TOC {
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  color: #333;
+  background-color: #e0f7fa; /* Fondo claro para el TOC */
+  border-left: 4px solid #66bb6a; /* Borde verde suave */
+  padding-left: 10px;
+  margin-top: 20px;
 }
-
-.toc a {
-  color: #333333; /* Texto oscuro para los enlaces en la TOC */
+#TOC ul li a {
+  color: #333333; /* Texto oscuro para los enlaces en el TOC */
 }
-
-.toc a:hover {
-  color: #7b1fa2; /* Color morado al pasar el mouse */
+#TOC ul li a:hover {
+  color: #4caf50; /* Color más oscuro al pasar el mouse */
 }
 
 /* Estilo de los párrafos */
 p {
   font-size: 1.1em;
-  color: black; /* Gris oscuro para mejor legibilidad */
+  color: #4a4a4a; /* Gris oscuro */
   margin-bottom: 20px;
+  text-align: justify; /* Justificación de texto */
 }
 
 /* Estilo de las listas */
 ul, ol {
   font-size: 1em;
-  color: #333333;
+  color: #4a4a4a;
   padding-left: 20px;
+  text-align: justify; /* Justificación de listas */
 }
 
 li {
@@ -79,9 +83,9 @@ li {
 
 /* Caja para citas o bloques destacados */
 blockquote {
-  background-color: #f3e5f5;
-  border-left: 5px solid #7b1fa2;
-  color: black;
+  background-color: #c8e6c9; /* Fondo más claro para mayor contraste */
+  border-left: 5px solid #66bb6a;
+  color: #333333;
   margin: 20px 0;
   padding: 15px;
   font-style: italic;
@@ -89,8 +93,8 @@ blockquote {
 
 /* Código en línea */
 code {
-  background-color: #e0e0e0;
-  color: #6a1b9a;
+  background-color: #e0f7fa;
+  color: #388e3c;
   padding: 2px 4px;
   border-radius: 4px;
   font-size: 0.95em;
@@ -98,8 +102,8 @@ code {
 
 /* Código en bloque */
 pre {
-  background-color: #e1bee7;
-  color: black;
+  background-color: #c8e6c9;
+  color: #333333;
   padding: 15px;
   border-radius: 8px;
   font-size: 0.95em;
@@ -110,6 +114,27 @@ pre {
 footer {
   text-align: center;
   padding: 10px;
-  color: #7b1fa2;
+  color: #66bb6a;
   font-size: 0.9em;
+}
+
+/* Encabezado con imagen de fondo */
+header {
+  background-image: url("header-image.jpg"); /* Reemplaza con tu imagen */
+  background-size: cover;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  font-size: 2em;
+}
+
+/* Barra de progreso en el desplazamiento */
+#progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  background-color: #4caf50;
+  z-index: 99;
 }

@@ -18,13 +18,22 @@ format:
     css: estilos.css
     highlight-style: tomorrow-night
     code-fold: true
-footer: "© 2024 Amilcar Valle López | Todos los derechos reservados"
+footer: |
+    <footer style="text-align: center;">
+        © 2024 Amilcar Valle López | Todos los derechos reservados |
+        <a href="https://linkedin.com/in/amilcarvalle" target="_blank">LinkedIn</a> |
+        <a href="mailto:vallelopezamilcar2002@gmail.com">Contacto</a>
+    </footer>
+editor_options: 
+  chunk_output_type: console
 ---
 
 
 # Introducción
 
 Aquí puedes ver una imagen relacionada con el tema:
+![Planta de aguaymanto](https://www.r-project.org/Rlogo.png)
+
 
 ![La programación del futuro](prog.jpg)
 
@@ -49,7 +58,7 @@ Esta es una fórmula cualquiera $$\frac{\left(2x-1\right)^2-1}{4}=k$$ Esta es la
 4.  Hacer push al repositorio
 5.  Activar Github pages
 
-# Modelos lineales mixtos
+# Modelos lineales
 
 ## Insertar datos
 
