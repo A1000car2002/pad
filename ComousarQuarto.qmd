@@ -32,7 +32,6 @@ editor_options:
 # Introducción
 
 Aquí puedes ver una imagen relacionada con el tema:
-![Planta de aguaymanto](https://www.r-project.org/Rlogo.png)
 
 
 ![La programación del futuro](prog.jpg)
@@ -145,6 +144,7 @@ model <- remove_outliers(data = fb
                          ) 
 model
 ```
+
 # Agricolae: Comparación de medias
 ```{r}
 modelo <- lm(formula = lfa ~ bloque + riego + geno + riego * geno, data = fb)
@@ -159,6 +159,7 @@ print(tukey_result)
 
 plot(tukey_result)
 ```
+
 # Prueba de Tukey
 ```{r}
 tukey_result
@@ -294,6 +295,7 @@ fb %>%
              , scale = FALSE
              , lm = TRUE
              )
+
 ```
 ## PCA: Análisis de componentes principales
 
@@ -312,6 +314,92 @@ p2 <- plot(mv
      , choix="var")
 list(p1, p2) %>%
   plot_grid(plotlist = .,nrow = 1)
+```
+
+# Gráfico en ggplot2
+## Gráficos en data cruda
+### Boxplot
+
+```{r}
+p1 <- fb %>%
+  ggplot(data = ., aes(x = geno, y = hi, fill = riego)) + 
+           geom_boxplot() + labs(x="Genotipos"
+                                 , y = "Indice de cosecha"
+                                 , fill = "Tratamiento"
+                                 , title = "Eficiencia de riego"
+                                 , subtitle = "Índice de cosecha"
+                                 ,caption = "n = 150") +
+  theme_classic() + theme(plot.title = element_text(hjust = 0.5))
+p1
+```
+
+
+## Sqater plot
+```{r}
+p2 <- fb %>%
+  ggplot(data = ., aes(x = wue, y = hi, colour = riego)) + 
+           geom_point() + labs(x="Eficiencia del uso del agua"
+                                 , y = "Indice de cosecha"
+                                 , fill = "Tratamiento"
+                                 , title = "Eficiencia del uso del agua en papa"
+                                 , subtitle = "Eficiencia del uso del agua en tubérculo "
+                                 ,caption = "n = 150") +
+  theme_bw()
+p2
+```
+
+## Datos resumidos
+```{r}
+modelo <- lm(formula = lfa ~ bloque + riego + geno + riego * geno, data = fb)
+
+tukey_result <- HSD.test(modelo, c("geno", "riego"), group = TRUE)
+
+grupos <- tukey_result$groups %>% 
+  rownames_to_column("tratamientos") %>% 
+  separate(tratamientos, into = c("geno", "riego"), sep = ":")
+
+```
+
+```{r}
+p3 <- grupos %>%
+  ggplot(data = ., aes(x = geno, y = lfa, fill = riego)) +
+  geom_col(position = position_dodge2(preserve = "single"))
+
+p3
+```
+
+# Imagen in grids
+
+
+```{r}
+
+p4 <- function() {fb %>%
+  select_if(is.numeric) %>%
+  dplyr::select(-block) %>%
+  pairs.panels(
+    x = .,
+    hist.col = "red",
+    pch = 21,
+    stars = TRUE,
+    scale = FALSE,
+    lm = TRUE
+  )
+}
+```
+
+```{r}
+
+library(cowplot)
+
+plot <- list(p1, p2, p3, p4) %>%
+  plot_grid(plotlist = .
+            , ncol = 2
+            , labels = "auto")
+
+plot
+
+ggsave2(filename = "plot-01-.jpg", units = "cm"
+        ,width = 30*2, height = 15*2)
 ```
 
 
