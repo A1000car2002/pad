@@ -400,6 +400,7 @@ plot
 
 ggsave2(filename = "plot-01-.jpg", units = "cm"
         ,width = 30*2, height = 15*2)
+include_graphics("plot-01-.jpg")
 ```
 
 
