@@ -1,0 +1,3 @@
+[1,"==> quarto preview models.qmd --to html --no-watch-inputs --no-browse\n\n"]
+[1,"pandoc \n  to: html\n  output-file: index.html\n  standalone: true\n  embed-resources: true\n  section-divs: true\n  html-math-method: mathjax\n  wrap: none\n  default-image-extension: png\n  toc: true\n  number-sections: true\n  \nmetadata\n  document-css: false\n  link-citations: true\n  date-format: long\n  lang: en\n  title: El arte del entrenamiento de modelos\n  author: Grupo 4\n  toc-location: left\n  smooth-scroll: true\n  anchor-sections: true\n  fontsize: 1.1em\n  linestretch: 1.7\n  \n"]
+[1,"Output created: index.html\n\nWatching files for changes\nBrowse at http://localhost:4257/\n"]

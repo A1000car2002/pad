@@ -9,7 +9,7 @@ format:
     embed-resources: true
     smooth-scroll: true
     anchor-sections: true
-    output-file: models
+    output-file: index
     fontsize: 1.1em
     linestretch: 1.7
     highlight-style: monokai
@@ -17,3 +17,4 @@ format:
 ---
 # Introducción
 # Programación
+
