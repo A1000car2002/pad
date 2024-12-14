@@ -1,20 +1,2 @@
----
-title: "El arte del entrenamiento de modelos"
-author: "Grupo 4"
-format:
-  html:
-    toc: true
-    toc-location: left
-    number-sections: true
-    embed-resources: true
-    smooth-scroll: true
-    anchor-sections: true
-    output-file: index
-    fontsize: 1.1em
-    linestretch: 1.7
-    highlight-style: monokai
-    code-fold: true
----
-# Introducción
-# Programación
+
 
