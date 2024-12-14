@@ -3,16 +3,16 @@
     "path": "D:/Ingeniería Agrónoma/Cursos/Ciclo XII/Programación y Analisis De Datos/Rproject/training models/models.qmd",
     "project_path": "training models/models.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "1639619384",
     "contents": "",
-    "dirty": false,
+    "dirty": true,
     "created": 1734193507631.0,
     "source_on_save": false,
     "relative_order": 2,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "11,23",
+        "cursorPosition": "18,14",
         "scrollLine": "0",
         "docOutlineVisible": "1"
     },
@@ -21,7 +21,7 @@
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1734191822,
+    "last_content_update": 1734195175261,
     "read_only": false,
     "read_only_alternatives": []
 }
