@@ -1,0 +1,76 @@
+# Cargar las librerías necesarias
+if (!require("dplyr")) {
+  install.packages("dplyr")
+  library(dplyr)
+}
+if (!require("tidyr")) {
+  install.packages("tidyr")
+  library(tidyr)
+}
+if (!require("ggplot2")) {
+  install.packages("ggplot2")
+  library(ggplot2)
+}
+
+# Datos
+datos <- data.frame(
+  tratamiento = c("MC3", "HSC_5", "HSC_9", "HSC_10"),
+  Dia_1 = c(6.18, 5.78, 6.54, 7),
+  Dia_2 = c(10.72, 25.8, 27.98, 34.58),
+  Dia_3 = c(14.93, 42.64, 41.92, 46.64),
+  Dia_4 = c(18.32, 48.1, 45.88, 47.08)
+)
+
+# Convertir los datos al formato "long" y reemplazar Dia_1, Dia_2, etc. por 1, 2, etc.
+datos_long <- datos %>%
+  pivot_longer(cols = starts_with("Dia"), 
+               names_to = "Dia", 
+               values_to = "diametro") %>%
+  mutate(Dia = as.numeric(gsub("Dia_", "", Dia)))  # Reemplazar "Dia_" y convertir a numérico
+
+# Crear el gráfico de barras con fuente Times New Roman
+f1 <- ggplot(datos_long, aes(x = Dia, y = diametro, fill = tratamiento)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  labs(
+    x = "Tiempo de evaluación (días)",
+    y = "Diámetro (mm)",
+    fill = "Tratamiento"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.background = element_blank(),           # Fondo blanco
+    panel.background = element_blank(),          # Fondo blanco en el panel
+    legend.background = element_blank(),         # Fondo blanco en la leyenda
+    axis.line = element_line(color = "black"),   # Línea del eje en negro
+    text = element_text(family = "Times New Roman") # Cambiar la fuente a Times New Roman
+  ) +
+  scale_fill_manual(values = c("grey", "red", "yellow", "green"))  # Colores personalizados
+f1
+# Crear el gráfico de líneas con fuente Times New Roman
+f2 <- ggplot(datos_long, aes(x = Dia, y = diametro, color = tratamiento, group = tratamiento)) +
+  geom_line(size = 1) +                         # Línea para cada tratamiento
+  geom_point(size = 2) +                        # Puntos en cada evaluación
+  labs(
+    x = "Tiempo de evaluación (días)",
+    y = "Diámetro (mm)",
+    color = "Tratamiento"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.background = element_blank(),           # Fondo blanco
+    panel.background = element_blank(),          # Fondo blanco en el panel
+    legend.background = element_blank(),         # Fondo blanco en la leyenda
+    axis.line = element_line(color = "black"),   # Línea del eje en negro
+    text = element_text(family = "Times New Roman") # Cambiar la fuente a Times New Roman
+  ) +
+  scale_color_manual(values = c("grey", "red", "yellow", "green"))  # Colores personalizados
+f2
+
+library(cowplot)
+
+plot <- list(f1,f2) %>%
+  plot_grid(plotlist = .
+            , ncol = 2
+            , labels = "AUTO")
+
+plot

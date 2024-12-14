@@ -1,0 +1,66 @@
+# Subir data
+source('https://inkaverse.com/setup.r')
+
+url <- "https://docs.google.com/spreadsheets/d/1cdatezgHryXprobw0C_qhQpteHvso1XqAxp3t1uX38g/edit?usp=sharing"
+
+gs <- url %>% 
+  as_sheets_id()
+
+fvt <- gs %>%
+  range_read("fvt")
+str(fvt)
+
+
+ggplot(fvt, aes(x = tipo_de_cepa, y = antibiosis, fill = tipo_de_cepa)) +
+  geom_boxplot(outlier.colour = "green", outlier.shape = 16, outlier.size = 2) + 
+  labs(
+    title = "Antibiosis de Trichoderma sobre Fusarium",
+    x = "Cepas de Trichoderma", 
+    y = "Antibiosis (%)"
+  ) +
+  scale_fill_manual(values = c("red", "blue", "yellow")) +
+  theme_minimal()
+
+ggplot(fvt, aes(x = tipo_de_cepa, y = antibiosis, fill = tratamiento)) +  # Usar 'fill' para asignar colores
+  geom_boxplot(outlier.colour = "green", outlier.shape = 16, outlier.size = 2) + 
+  labs(
+    title = "Antibiosis de Trichoderma sobre Fusarium",
+    x = "Cepas de Trichoderma", 
+    y = "Antibiosis (%)"
+  ) +
+  scale_fill_manual(values = c("red", "blue", "yellow")) +  # Asegúrate de que hay un color por nivel de 'tratamiento'
+  theme_minimal()
+
+library(agricolae)
+
+# Ajustar el modelo ANOVA
+modelo <- aov(formula = antibiosis ~ tratamiento,
+              data = fvt)
+
+tukey_result <- HSD.test(modelo, "tratamiento", group = TRUE)
+
+print(tukey_result)
+plot(tukey_result)
+tukey_result
+grupo <- tukey_result$groups %>% 
+  rownames_to_column("tratamientos") %>% 
+  separate(antibiosis, into = c("antibiosis"),sep = ":")
+grupo
+str(grupo)
+
+ggplot(grupo, aes(x = tratamientos, y = antibiosis, fill = tratamientos)) +  # Asegúrate de que "lfa" sea el nombre correcto
+  geom_bar(stat = "identity", position = position_dodge(), color = "black") +
+  labs(title = "Comparación de Medias - Prueba de Tukey", 
+       x = "Cepas de trichoderma", 
+       y = "Diámetro (mm)") +
+  theme_minimal() +
+  theme(
+    plot.background = element_blank(),           # Fondo blanco
+    panel.background = element_blank(),          # Fondo blanco en el panel
+    legend.background = element_blank(),         # Fondo blanco en la leyenda
+    axis.line = element_line(color = "black"),   # Línea del eje en negro
+    text = element_text(family = "Times New Roman") # Cambiar la fuente a Times New Roman
+  ) +
+  scale_fill_discrete(name = "Riego") +
+  geom_text(aes(label = groups, y = antibiosis),  # Usar 'groups' en lugar de 'M'
+            position = position_dodge(0.9), vjust = 1)  # Ajustar el espaciado de las letras

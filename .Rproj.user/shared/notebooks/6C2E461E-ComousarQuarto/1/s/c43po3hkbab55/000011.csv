@@ -1,0 +1,4 @@
+"0","modelo <- aov(formula = lfa ~ bloque + riego + geno + riego*geno"
+"0","              , data =fb)"
+"2","Error: objeto 'fb' no encontrado
+"

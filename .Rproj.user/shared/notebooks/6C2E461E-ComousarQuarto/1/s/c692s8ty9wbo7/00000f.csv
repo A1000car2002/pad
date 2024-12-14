@@ -1,0 +1,5 @@
+"0","ggplot(fb, aes(x = geno, y = lfa, colour = riego)) + "
+"0","         geom_boxplot(outlier.colour = ""green"", outlier.shape = 16, outlier.size = 2) + "
+"0","         labs(title = ""Boxplot con interacción de niveles de riego y genotipo"","
+"0","              x = ""Interacción riego y genotipo"","
+"0","              y = ""Área foliar (cm^2)"")"
