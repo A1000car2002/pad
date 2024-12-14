@@ -5,7 +5,6 @@ date: "`r Sys.Date()`"
 lang: "es-ES"
 description: "Una exploración en profundidad sobre el valor de la programación en el desarrollo profesional y académico."
 keywords: ["programación", "desarrollo profesional", "educación"]
-favicon: "ruta/a/favicon.ico"
 format:
   html:
     toc: true
