@@ -44,23 +44,6 @@ a:hover {
   color: #4caf50; /* Color más oscuro al pasar el mouse */
 }
 
-/* Estilo para el índice (TOC) */
-#TOC {
-  font-family: Arial, sans-serif;
-  font-size: 1em;
-  color: #333;
-  background-color: #e0f7fa; /* Fondo claro para el TOC */
-  border-left: 4px solid #66bb6a; /* Borde verde suave */
-  padding-left: 10px;
-  margin-top: 20px;
-}
-#TOC ul li a {
-  color: #333333; /* Texto oscuro para los enlaces en el TOC */
-}
-#TOC ul li a:hover {
-  color: #4caf50; /* Color más oscuro al pasar el mouse */
-}
-
 /* Estilo de los párrafos */
 p {
   font-size: 1.1em;
@@ -137,4 +120,46 @@ header {
   height: 5px;
   background-color: #4caf50;
   z-index: 99;
+}
+/* Estilo para el contenedor del TOC */
+.toc {
+  display: flex;               /* Cambia la disposición a horizontal */
+  justify-content: center;     /* Centra el TOC horizontalmente */
+  gap: 20px;                   /* Espaciado entre elementos del TOC */
+  list-style: none;            /* Elimina los puntos de las listas */
+  padding: 10px;               /* Espaciado interno */
+  background-color: #f8f9fa;   /* Fondo claro */
+  border-bottom: 2px solid #ddd; /* Línea inferior para separarlo del contenido */
+}
+
+/* Enlaces dentro del TOC */
+.toc a {
+  text-decoration: none;       /* Elimina el subrayado */
+  color: #333;              /* Color del texto */
+  font-weight: bold;           /* Texto en negritas */
+  padding: 5px 10px;           /* Espaciado interno */
+  border-radius: 5px;          /* Bordes redondeados */
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto hover */
+.toc a:hover {
+  background-color: #007bff;   /* Fondo azul en hover */
+  color: #ffffff;              /* Texto blanco en hover */
+}
+/* Estilo para el índice (TOC) */
+#TOC {
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  color: #333;
+  background-color: #e0f7fa; /* Fondo claro para el TOC */
+  border-left: 4px solid #66bb6a; /* Borde verde suave */
+  padding-left: 10px;
+  margin-top: 20px;
+}
+#TOC ul li a {
+  color: #333333; /* Texto oscuro para los enlaces en el TOC */
+}
+#TOC ul li a:hover {
+  color: #4caf50; /* Color más oscuro al pasar el mouse */
 }
