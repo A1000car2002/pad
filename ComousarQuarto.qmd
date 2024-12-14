@@ -2,8 +2,10 @@
 title: "EL VALOR DE LA PROGRAMACIÓN"
 author: "Ph. D Amilcar Valle López"
 date: "`r Sys.Date()`"
-lang: "es"
+lang: "es-ES"
 description: "Una exploración en profundidad sobre el valor de la programación en el desarrollo profesional y académico."
+keywords: ["programación", "desarrollo profesional", "educación"]
+favicon: "ruta/a/favicon.ico"
 format:
   html:
     toc: true
@@ -16,14 +18,22 @@ format:
     fontsize: 1.1em
     linestretch: 1.7
     css: estilos.css
-    highlight-style: tomorrow-night
+    highlight-style: monokai
     code-fold: true
-footer: |
-    <footer style="text-align: center;">
-        © 2024 Amilcar Valle López | Todos los derechos reservados |
-        <a href="https://linkedin.com/in/amilcarvalle" target="_blank">LinkedIn</a> |
-        <a href="mailto:vallelopezamilcar2002@gmail.com">Contacto</a>
-    </footer>
+analytics: UA-XXXXXXXX-X
+disqus: "tu-nombre-en-disqus"
+navbar:
+  title: "EL VALOR DE LA PROGRAMACIÓN"
+  left:
+    - text: "Inicio"
+      href: "#"
+    - text: "Secciones"
+      href: "#secciones"
+    - text: "Contacto"
+      href: "#contacto"
+  right:
+    - text: "Idioma"
+      href: "#lang"
 editor_options: 
   chunk_output_type: console
 ---
